@@ -1,16 +1,16 @@
-import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly/core/utils/styles.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {Key? key,
-      required this.backGroundColor,
-      required this.textColor,
-      this.borderRadius,
-      required this.text,
-      this.fontSize,
-      this.function})
-      : super(key: key);
+  const CustomButton({
+    Key? key,
+    required this.backGroundColor,
+    required this.textColor,
+    this.borderRadius,
+    required this.text,
+    this.fontSize,
+    this.function,
+  }) : super(key: key);
 
   final String text;
 

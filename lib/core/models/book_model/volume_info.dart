@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-import 'image_links.dart';
-import 'industry_identifier.dart';
-import 'panelization_summary.dart';
-import 'reading_modes.dart';
+import 'volume_info_model/image_links.dart';
+import 'volume_info_model/industry_identifier.dart';
+import 'volume_info_model/panelization_summary.dart';
+import 'volume_info_model/reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;

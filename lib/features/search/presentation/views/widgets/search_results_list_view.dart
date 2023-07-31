@@ -15,17 +15,18 @@ class SearchResultListView extends StatelessWidget {
         builder: (context, state) {
       if (state is SearchedBooksSuccess) {
         return ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.zero,
-            itemCount: state.books.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
-                child: BookListViewItem(
-                  book: state.books[index],
-                ),
-              );
-            });
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.zero,
+          itemCount: state.books.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
+              child: BookListViewItem(
+                book: state.books[index],
+              ),
+            );
+          },
+        );
       } else if (state is SearchedBooksInitial) {
         return const Center(
           child: Icon(

@@ -1,9 +1,10 @@
-import 'package:bookly/core/errors/failure.dart';
-import 'package:bookly/core/models/book_model/book_model/book_model.dart';
-import 'package:bookly/core/utils/api_service.dart';
-import 'package:bookly/features/home/data/repos/home_repo/home_repo.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:dartz/dartz.dart';
+import 'package:bookly/core/errors/failure.dart';
+import 'package:bookly/core/utils/api_service.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/features/home/data/repos/home_repo/home_repo.dart';
+
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService _apiService;

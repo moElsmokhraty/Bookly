@@ -1,8 +1,7 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class HomeViewAppBar extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 20),
       child: Row(
         children: [
-          Image.asset(Assets.kLogo, height: 20),
+          Image.asset(kLogo, height: 20),
           const Spacer(),
           IconButton(
             onPressed: () {

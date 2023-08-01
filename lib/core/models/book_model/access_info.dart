@@ -1,7 +1,6 @@
-import 'package:equatable/equatable.dart';
-
-import 'access_info_model/epub.dart';
 import 'access_info_model/pdf.dart';
+import 'access_info_model/epub.dart';
+import 'package:equatable/equatable.dart';
 
 class AccessInfo extends Equatable {
   final String? country;

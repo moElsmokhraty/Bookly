@@ -22,13 +22,13 @@ class BookDetailsSection extends StatelessWidget {
           ),
           child: Center(
             child: CustomBookImage(
-              imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
+              imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
             ),
           ),
         ),
         const SizedBox(height: 30),
         Text(
-          book.volumeInfo.title!,
+          book.volumeInfo!.title!,
           style: Styles.textStyle30,
           textAlign: TextAlign.center,
         ),
@@ -36,7 +36,7 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: 0.7,
           child: Text(
-            book.volumeInfo.authors?.first ?? '',
+            book.volumeInfo!.authors?.first ?? '',
             style: Styles.textStyle18.copyWith(
                 fontWeight: FontWeight.w500, fontStyle: FontStyle.italic),
           ),
@@ -44,8 +44,8 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(height: 18),
         BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: book.volumeInfo.averageRating ?? 'Not Rated',
-          ratesCount: book.volumeInfo.ratingsCount ?? 0,
+          rating: book.volumeInfo!.averageRating ?? 'Not Rated',
+          ratesCount: book.volumeInfo!.ratingsCount ?? 0,
         ),
         const SizedBox(
           height: 30,

@@ -1,9 +1,8 @@
 import 'package:equatable/equatable.dart';
-
 import 'volume_info_model/image_links.dart';
+import 'volume_info_model/reading_modes.dart';
 import 'volume_info_model/industry_identifier.dart';
 import 'volume_info_model/panelization_summary.dart';
-import 'volume_info_model/reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
@@ -16,7 +15,7 @@ class VolumeInfo extends Equatable {
   final int? pageCount;
   final String? printType;
   final List<String>? categories;
-  final dynamic averageRating;
+  final num? averageRating;
   final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
@@ -68,7 +67,7 @@ class VolumeInfo extends Equatable {
         pageCount: json['pageCount'] as int?,
         printType: json['printType'] as String?,
         categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
-        averageRating: json['averageRating'] as dynamic,
+        averageRating: json['averageRating'] as num?,
         ratingsCount: json['ratingsCount'] as int?,
         maturityRating: json['maturityRating'] as String?,
         allowAnonLogging: json['allowAnonLogging'] as bool?,

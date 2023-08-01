@@ -26,7 +26,7 @@ class BooksAction extends StatelessWidget {
               child: CustomButton(
             text: getText(book),
             function: () async {
-              launchMyUrl(context, book.volumeInfo.previewLink);
+              launchMyUrl(context, book.volumeInfo!.previewLink);
             },
             fontSize: 16,
             backGroundColor: const Color(0xffEF8262),
@@ -41,7 +41,7 @@ class BooksAction extends StatelessWidget {
   }
 
   String getText(BookModel book) {
-    if (book.volumeInfo.previewLink == null) {
+    if (book.volumeInfo?.previewLink == null) {
       return 'Not Available';
     } else {
       return 'Free Preview';

@@ -1,5 +1,4 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(Assets.kLogo),
+        Image.asset(kLogo),
         const SizedBox(
           height: 5,
         ),

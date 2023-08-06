@@ -4,14 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:bookly/bloc_observer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/service_locator.dart';
 import 'package:bookly/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/view_model/cubits/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/view_model/cubits/featured_books_cubit/featured_books_cubit.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox(kHiveBox);
   setupServiceLocator();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -30,7 +33,8 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
+          create: (context) =>
+          FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) =>

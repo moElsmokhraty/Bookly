@@ -4,6 +4,8 @@ const kPrimaryColor = Color(0xff100B20);
 
 const kTransitionDuration = Duration(milliseconds: 250);
 
+const kHiveBox = 'books_box';
+
 const kGtSectraFine = 'GT Sectra Fine';
 
 const kLogo = 'assets/images/Logo.png';

@@ -26,6 +26,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         endpoint:
             'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:computer-science');
     List<BookEntity> books = getBooksList(data);
+    cacheBooksList(books, kNewestBox);
     return books;
   }
 }

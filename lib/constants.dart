@@ -4,7 +4,9 @@ const kPrimaryColor = Color(0xff100B20);
 
 const kTransitionDuration = Duration(milliseconds: 250);
 
-const kFeaturedBox = 'books_box';
+const kFeaturedBox = 'featured_box';
+
+const kNewestBox = 'newest_box';
 
 const kGtSectraFine = 'GT Sectra Fine';
 

@@ -1,9 +1,9 @@
-import 'package:bookly/core/errors/failure.dart';
-import 'package:bookly/core/models/book_model/book_model.dart';
-import 'package:bookly/core/utils/api_service.dart';
-import 'package:bookly/features/search/data/repos/search_repo.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:dartz/dartz.dart';
+import 'package:bookly/core/errors/failure.dart';
+import 'package:bookly/core/utils/api_service.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/features/search/data/repos/search_repo.dart';
 
 class SearchRepoImpl implements SearchRepo {
   final ApiService _apiService;
@@ -22,7 +22,7 @@ class SearchRepoImpl implements SearchRepo {
       }
       return Right(books);
     } on Exception catch (e){
-      if (e is DioError){
+      if (e is DioException){
         return Left(ServerFailure.fromDioError(e));
       } else {
         return Left(ServerFailure(errMessage: e.toString()));

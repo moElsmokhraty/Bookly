@@ -9,41 +9,33 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure({required super.errMessage});
 
-  factory ServerFailure.fromDioError(DioError dioError) {
-    switch (dioError.type) {
-      case DioErrorType.cancel:
-        // TODO: Handle this case.
+  factory ServerFailure.fromDioError(DioException dioException) {
+    switch (dioException.type) {
+      case DioExceptionType.cancel:
         return ServerFailure(errMessage: "Request to server was cancelled");
-      case DioErrorType.connectionTimeout:
-        // TODO: Handle this case.
+      case DioExceptionType.connectionTimeout:
         return ServerFailure(errMessage: "Connection timeout with server");
-      case DioErrorType.receiveTimeout:
-        // TODO: Handle this case.
+      case DioExceptionType.receiveTimeout:
         return ServerFailure(
             errMessage: "Receive timeout in connection with server");
-      case DioErrorType.sendTimeout:
-        // TODO: Handle this case.
+      case DioExceptionType.sendTimeout:
         return ServerFailure(
             errMessage: "Send timeout in connection with server");
-      case DioErrorType.badCertificate:
-        // TODO: Handle this case.
+      case DioExceptionType.badCertificate:
         return ServerFailure(
             errMessage: "Bad certificate in connection with server");
-      case DioErrorType.badResponse:
-        // TODO: Handle this case.
+      case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            statusCode: dioError.response!.statusCode,
-            response: dioError.response!.data);
-      case DioErrorType.connectionError:
-        // TODO: Handle this case.
+          statusCode: dioException.response!.statusCode,
+          response: dioException.response!.data,
+        );
+      case DioExceptionType.connectionError:
         return ServerFailure(errMessage: "Connection error with server");
-      case DioErrorType.unknown:
-        // TODO: Handle this case.
+      case DioExceptionType.unknown:
         return ServerFailure(errMessage: "No Internet Connection");
       default:
         return ServerFailure(
-            errMessage:
-                "Oops, Unexpected error occurred, Please try again later");
+            errMessage: "Oops, Unexpected error occurred, Please try again later");
     }
   }
 
@@ -62,8 +54,7 @@ class ServerFailure extends Failure {
           errMessage: 'Internal Server Error, Please try again later');
     } else {
       return ServerFailure(
-          errMessage:
-              'Oops, Unexpected error occurred, Please try again later');
+          errMessage: 'Oops, Unexpected error occurred, Please try again later');
     }
   }
 }

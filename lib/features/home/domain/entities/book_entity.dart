@@ -1,4 +1,6 @@
-class BookEntity {
+import 'package:equatable/equatable.dart';
+
+class BookEntity extends Equatable {
   final String bookId;
   final String? imageUrl;
   final String title;
@@ -6,7 +8,7 @@ class BookEntity {
   final String? price;
   final num? rating;
 
-  BookEntity({
+  const BookEntity({
     required this.bookId,
     required this.imageUrl,
     required this.title,
@@ -14,4 +16,16 @@ class BookEntity {
     required this.price,
     required this.rating,
   });
+
+  @override
+  List<Object?> get props {
+    return [
+      bookId,
+      imageUrl,
+      title,
+      authorName,
+      price,
+      rating,
+    ];
+  }
 }

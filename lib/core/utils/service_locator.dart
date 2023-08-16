@@ -12,7 +12,7 @@ void setupServiceLocator() {
   getIt.registerSingleton<SearchRepoImpl>(SearchRepoImpl(
     getIt.get<ApiService>(),
   ));
-  getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
-    getIt.get<ApiService>(),
-  ));
+  // getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
+  //   getIt.get<ApiService>(),
+  // ));
 }

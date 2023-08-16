@@ -27,7 +27,7 @@ class FeaturedBooksListView extends StatelessWidget {
                       .push(kBookDetailsView, extra: state.books[index]);
                 },
                 child: CustomBookImage(
-                    imageUrl: state.books[index].volumeInfo!.imageLinks?.thumbnail ??
+                    imageUrl: state.books[index].imageUrl ??
                         ''),
               ),
             );

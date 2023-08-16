@@ -14,7 +14,7 @@ class BookRating extends StatelessWidget {
 
   final dynamic rating;
 
-  final int ratesCount;
+  final num ratesCount;
 
   @override
   Widget build(BuildContext context) {

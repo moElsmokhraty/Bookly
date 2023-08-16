@@ -1,5 +1,5 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/functions/cahe_books_list.dart';
+import 'package:bookly/core/functions/cache_books_list.dart';
 
 import 'home_remote_data_source.dart';
 import 'package:bookly/core/utils/api_service.dart';
@@ -24,7 +24,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewestBooks() async {
     var data = await _apiService.get(
         endpoint:
-            'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:computer-science');
+            'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:Programming');
     List<BookEntity> books = getBooksList(data);
     cacheBooksList(books, kNewestBox);
     return books;

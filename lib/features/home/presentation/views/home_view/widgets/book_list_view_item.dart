@@ -1,11 +1,10 @@
+import 'book_rating.dart';
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/home_view/widgets/custom_book_image.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
   const BookListViewItem({Key? key, required this.book}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/widgets/custom_error.dart';
 import 'package:bookly/core/widgets/custom_loading_indicator.dart';
-import 'package:bookly/features/home/presentation/view_model/cubits/similar_books_cubit/similar_book_cubit.dart';
+import 'package:bookly/features/home/presentation/cubits/similar_books_cubit/similar_book_cubit.dart';
 import 'package:bookly/features/home/presentation/views/home_view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,3 +1,4 @@
+import 'package:bookly/core/errors/server_failure.dart';
 import 'package:dio/dio.dart';
 import 'package:dartz/dartz.dart';
 import 'package:bookly/core/errors/failure.dart';

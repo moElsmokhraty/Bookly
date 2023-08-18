@@ -5,16 +5,16 @@ abstract class FeaturedBooksState {}
 
 class FeaturedBooksInitial extends FeaturedBooksState {}
 
-class FeaturedBooksLoading extends FeaturedBooksState {}
+class FetchFeaturedBooksLoading extends FeaturedBooksState {}
 
-class FeaturedBooksSuccess extends FeaturedBooksState {
+class FetchFeaturedBooksSuccess extends FeaturedBooksState {
   final List<BookEntity> books;
 
-  FeaturedBooksSuccess(this.books);
+  FetchFeaturedBooksSuccess(this.books);
 }
 
-class FeaturedBooksFailure extends FeaturedBooksState {
+class FetchFeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
-  FeaturedBooksFailure(this.errMessage);
+  FetchFeaturedBooksFailure(this.errMessage);
 }

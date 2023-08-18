@@ -5,16 +5,16 @@ abstract class NewestBookState {}
 
 class NewestBooksInitial extends NewestBookState {}
 
-class NewestBooksLoading extends NewestBookState {}
+class FetchNewestBooksLoading extends NewestBookState {}
 
-class NewestBooksSuccess extends NewestBookState {
+class FetchNewestBooksSuccess extends NewestBookState {
   final List<BookEntity> books;
 
-  NewestBooksSuccess(this.books);
+  FetchNewestBooksSuccess(this.books);
 }
 
-class NewestBooksFailure extends NewestBookState {
+class FetchNewestBooksFailure extends NewestBookState {
   final String errMessage;
 
-  NewestBooksFailure(this.errMessage);
+  FetchNewestBooksFailure(this.errMessage);
 }

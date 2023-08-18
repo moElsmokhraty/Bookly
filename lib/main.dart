@@ -4,10 +4,9 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/bloc_observer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:bookly/core/utils/app_router.dart';
-import 'features/home/domain/entities/book_entity.dart';
 import 'package:bookly/core/utils/service_locator.dart';
+import 'package:bookly/core/functions/setup_hive_db.dart';
 import 'features/home/domain/use_cases/fetch_newest_books_use_case.dart';
 import 'features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import 'package:bookly/features/home/presentation/cubits/newest_books_cubit/newest_books_cubit.dart';
@@ -15,17 +14,9 @@ import 'package:bookly/features/home/presentation/cubits/featured_books_cubit/fe
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox<BookEntity>(kFeaturedBox);
-  await Hive.openBox<BookEntity>(kNewestBox);
-  await Hive.openBox<BookEntity>(kSimilarBox);
+  await setupHiveDB();
   setupServiceLocator();
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: kPrimaryColor,
-    ),
-  );
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: kPrimaryColor));
   Bloc.observer = MyBlocObserver();
   runApp(const Bookly());
 }

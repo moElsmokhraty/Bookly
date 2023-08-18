@@ -1,4 +1,3 @@
-import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,7 +11,7 @@ class BookDetailsViewAppBar extends StatelessWidget {
       children: [
         IconButton(
             onPressed: () {
-              GoRouter.of(context).push(kHomeView);
+              GoRouter.of(context).pop(context);
             },
             icon: const Icon(
               Icons.close_outlined,

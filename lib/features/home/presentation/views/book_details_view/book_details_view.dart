@@ -11,8 +11,14 @@ class BookDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BookDetailsViewBody(
-          book: book,
+        child: WillPopScope(
+          onWillPop: () async {
+            Navigator.pop(context);
+            return true;
+          },
+          child: BookDetailsViewBody(
+            book: book,
+          ),
         ),
       ),
     );

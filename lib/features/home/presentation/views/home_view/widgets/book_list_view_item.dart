@@ -16,7 +16,7 @@ class BookListViewItem extends StatelessWidget {
     double bookDetailsWidth = MediaQuery.of(context).size.width * 0.5;
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).go(kBookDetailsView, extra: book);
+        GoRouter.of(context).push(kBookDetailsView, extra: book);
       },
       child: SizedBox(
         height: 125,

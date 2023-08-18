@@ -1,12 +1,12 @@
-import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/url_launcher.dart';
 import 'package:bookly/core/widgets/custom_button.dart';
-import 'package:flutter/material.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({Key? key, required this.book}) : super(key: key);
 
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -15,36 +15,35 @@ class BooksAction extends StatelessWidget {
       child: Row(
         children: [
           const Expanded(
-              child: CustomButton(
-            text: 'Free',
-            backGroundColor: Colors.white,
-            textColor: Colors.black,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12), bottomLeft: Radius.circular(12)),
-          )),
+            child: CustomButton(
+              text: 'Free',
+              backGroundColor: Colors.white,
+              textColor: Colors.black,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12),
+                bottomLeft: Radius.circular(12),
+              ),
+            ),
+          ),
           Expanded(
-              child: CustomButton(
-            text: getText(book),
-            function: () async {
-              launchMyUrl(context, book.volumeInfo!.previewLink);
-            },
-            fontSize: 16,
-            backGroundColor: const Color(0xffEF8262),
-            textColor: Colors.white,
-            borderRadius: const BorderRadius.only(
+            child: CustomButton(
+              text: book.previewLink == null ? 'Not Available' : 'Free Preview',
+              function: () async {
+                if (book.previewLink != null) {
+                  await launchMyUrl(context, book.previewLink);
+                }
+              },
+              fontSize: 16,
+              backGroundColor: const Color(0xffEF8262),
+              textColor: Colors.white,
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12)),
-          )),
+                bottomRight: Radius.circular(12),
+              ),
+            ),
+          ),
         ],
       ),
     );
-  }
-
-  String getText(BookModel book) {
-    if (book.volumeInfo?.previewLink == null) {
-      return 'Not Available';
-    } else {
-      return 'Free Preview';
-    }
   }
 }

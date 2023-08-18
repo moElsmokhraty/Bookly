@@ -8,7 +8,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'features/home/domain/entities/book_entity.dart';
 import 'package:bookly/core/utils/service_locator.dart';
-import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
+import 'features/home/domain/use_cases/fetch_newest_books_use_case.dart';
+import 'features/home/domain/use_cases/fetch_featured_books_use_case.dart';
 import 'package:bookly/features/home/presentation/cubits/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly/features/home/presentation/cubits/featured_books_cubit/featured_books_cubit.dart';
 
@@ -18,6 +19,7 @@ void main() async {
   Hive.registerAdapter(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBox);
   await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(kSimilarBox);
   setupServiceLocator();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -36,12 +38,12 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())
-            ..fetchFeaturedBooks(),
+          create: (context) =>
+          FeaturedBooksCubit(getIt.get<FetchFeaturedBooksUseCase>())..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) =>
-              NewestBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewestBooks(),
+              NewestBooksCubit(getIt.get<FetchNewestBooksUseCase>())..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
@@ -49,8 +51,7 @@ class Bookly extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(useMaterial3: true).copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
-          textTheme:
-              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+          textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         ),
       ),
     );

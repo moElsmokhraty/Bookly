@@ -29,4 +29,14 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
     cacheBooksList(books, kNewestBox);
     return books;
   }
+
+  @override
+  Future<List<BookEntity>> fetchSimilarBooks() async {
+    var data = await _apiService.get(
+        endpoint:
+        'volumes?Filtering=free-ebooks&Sorting=relevance&q=subject:Programming');
+    List<BookEntity> books = getBooksList(data);
+    cacheBooksList(books, kSimilarBox);
+    return books;
+  }
 }

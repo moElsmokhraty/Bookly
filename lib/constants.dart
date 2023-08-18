@@ -8,6 +8,8 @@ const kFeaturedBox = 'featured_box';
 
 const kNewestBox = 'newest_box';
 
+const kSimilarBox = 'similar_box';
+
 const kGtSectraFine = 'GT Sectra Fine';
 
 const kLogo = 'assets/images/Logo.png';

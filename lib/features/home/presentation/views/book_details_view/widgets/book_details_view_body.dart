@@ -1,4 +1,4 @@
-import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/book_details_view/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
 import 'book_details_section.dart';
@@ -7,7 +7,7 @@ import 'book_details_view_app_bar.dart';
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({Key? key, required this.book}) : super(key: key);
 
-  final BookModel book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,10 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
 part of 'book_entity.dart';
+
+// **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
 
 class BookEntityAdapter extends TypeAdapter<BookEntity> {
   @override
@@ -25,7 +31,7 @@ class BookEntityAdapter extends TypeAdapter<BookEntity> {
   @override
   void write(BinaryWriter writer, BookEntity obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.bookId)
       ..writeByte(1)

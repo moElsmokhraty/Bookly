@@ -14,53 +14,51 @@ class BookListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double bookDetailsWidth = MediaQuery.of(context).size.width * 0.5;
-    return GestureDetector(
-      onTap: () {
-        GoRouter.of(context).push(kBookDetailsView, extra: book);
-      },
-      child: SizedBox(
-        height: 125,
-        child: Row(
-          children: [
-            CustomBookImage(
-              imageUrl: book.imageUrl ?? '',
-            ),
-            const SizedBox(width: 15.0),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                      width: bookDetailsWidth,
-                      child: Text(
-                        book.title,
+    return SizedBox(
+      height: 125,
+      child: Row(
+        children: [
+          CustomBookImage(
+            book: book,
+            onTap: () {
+              GoRouter.of(context).pushReplacement(kBookDetailsView, extra: book);
+            }
+          ),
+          const SizedBox(width: 15.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                    width: bookDetailsWidth,
+                    child: Text(
+                      book.title,
+                      style: Styles.textStyle20
+                          .copyWith(fontFamily: kGtSectraFine),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    )),
+                const SizedBox(height: 3.0),
+                Text(book.authorName ?? 'Unknown',
+                    style: Styles.textStyle14
+                        .copyWith(fontWeight: FontWeight.w500)),
+                const SizedBox(height: 3.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Free',
                         style: Styles.textStyle20
-                            .copyWith(fontFamily: kGtSectraFine),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      )),
-                  const SizedBox(height: 3.0),
-                  Text(book.authorName ?? 'Unknown',
-                      style: Styles.textStyle14
-                          .copyWith(fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 3.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Free',
-                          style: Styles.textStyle20
-                              .copyWith(fontWeight: FontWeight.bold)),
-                      BookRating(
-                        rating: book.rating ?? 'Not Rated',
-                        ratesCount: book.ratingsCount ?? 0,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                            .copyWith(fontWeight: FontWeight.bold)),
+                    BookRating(
+                      rating: book.rating ?? 'Not Rated',
+                      ratesCount: book.ratingsCount ?? 0,
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

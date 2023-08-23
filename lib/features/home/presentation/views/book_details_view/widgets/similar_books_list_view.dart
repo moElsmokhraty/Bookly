@@ -19,24 +19,22 @@ class SimilarBooksListView extends StatelessWidget {
         return SizedBox(
           height: height,
           child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: state.books.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                  child: GestureDetector(
-                    onTap: (){
-                      GoRouter.of(context).push(kBookDetailsView, extra: state.books[index]);
-                    },
-                    child: CustomBookImage(
-                      imageUrl:
-                          state.books[index].imageUrl ??
-                              '',
-                    ),
-                  ),
-                );
-              }),
+            physics: const BouncingScrollPhysics(),
+            itemCount: state.books.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: CustomBookImage(
+                  book: state.books[index],
+                  onTap: () {
+                    GoRouter.of(context)
+                        .pushReplacement(kBookDetailsView, extra: state.books[index]);
+                  },
+                ),
+              );
+            },
+          ),
         );
       } else if (state is SimilarBooksFailure) {
         return CustomError(errMessage: state.errMessage);

@@ -22,7 +22,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
           child: Center(
             child: CustomBookImage(
-              imageUrl: book.imageUrl,
+              book: book,
             ),
           ),
         ),

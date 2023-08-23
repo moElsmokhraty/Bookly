@@ -14,9 +14,14 @@ import 'package:bookly/features/home/presentation/cubits/featured_books_cubit/fe
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: kPrimaryColor,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
   await setupHiveDB();
   setupServiceLocator();
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: kPrimaryColor));
   Bloc.observer = MyBlocObserver();
   runApp(const Bookly());
 }
@@ -42,6 +47,7 @@ class Bookly extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark(useMaterial3: true).copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
+          useMaterial3: true,
           textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         ),
       ),

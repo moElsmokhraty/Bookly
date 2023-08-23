@@ -5,9 +5,15 @@ import 'package:bookly/features/home/domain/entities/book_entity.dart';
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override
-  List<BookEntity> fetchFeaturedBooks() {
+  List<BookEntity> fetchFeaturedBooks({int page = 0}) {
+    int startIndex = page * 10;
+    int endIndex = (page + 1) * 10;
     var box = Hive.box<BookEntity>(kFeaturedBox);
-    return box.values.toList();
+    int length = box.values.length;
+    if (startIndex >= length || endIndex > length) {
+      return [];
+    }
+    return box.values.toList().sublist(startIndex, endIndex);
   }
 
   @override

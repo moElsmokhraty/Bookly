@@ -29,7 +29,7 @@ class SimilarBooksListView extends StatelessWidget {
                   book: state.books[index],
                   onTap: () {
                     GoRouter.of(context)
-                        .pushReplacement(kBookDetailsView, extra: state.books[index]);
+                        .push(kBookDetailsView, extra: state.books[index]);
                   },
                 ),
               );

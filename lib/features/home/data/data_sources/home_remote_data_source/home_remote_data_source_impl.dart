@@ -1,10 +1,9 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/functions/cache_books_list.dart';
-
 import 'home_remote_data_source.dart';
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/core/functions/get_books_list.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/functions/cache_books_list.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final ApiService _apiService;

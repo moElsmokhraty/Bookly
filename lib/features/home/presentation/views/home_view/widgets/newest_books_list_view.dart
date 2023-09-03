@@ -1,6 +1,6 @@
 import 'book_list_view_item.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 
 class NewestBooksListView extends StatelessWidget {
   const NewestBooksListView({Key? key, required this.books}) : super(key: key);
@@ -10,6 +10,7 @@ class NewestBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       itemCount: books.length,

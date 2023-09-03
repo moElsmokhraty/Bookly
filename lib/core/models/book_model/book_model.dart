@@ -1,7 +1,7 @@
 import 'sale_info.dart';
 import 'access_info.dart';
 import 'volume_info.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 
 class BookModel extends BookEntity {
   final String? kind;
@@ -22,7 +22,7 @@ class BookModel extends BookEntity {
     this.accessInfo,
   }) : super(
           bookId: id!,
-          imageUrl: volumeInfo!.imageLinks!.thumbnail ?? '',
+          imageUrl: volumeInfo!.imageLinks?.thumbnail ?? '',
           title: volumeInfo.title!,
           authorName: volumeInfo.authors?.first ?? 'Unknown',
           price: 'Free',

@@ -1,5 +1,5 @@
 import 'package:bookly/core/models/book_model/book_model.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 
 List<BookEntity> getBooksList(Map<String, dynamic> data) {
   List<BookEntity> books = [];

@@ -1,15 +1,16 @@
-import 'package:bookly/constants.dart';
-import 'package:go_router/go_router.dart';
-
 import 'custom_book_image.dart';
+import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/cubits/featured_books_cubit/featured_books_cubit.dart';
 
 class FeaturedBooksListView extends StatefulWidget {
-  const FeaturedBooksListView({Key? key, required this.books})
-      : super(key: key);
+  const FeaturedBooksListView({
+    Key? key,
+    required this.books,
+  }) : super(key: key);
 
   final List<BookEntity> books;
 
@@ -19,14 +20,13 @@ class FeaturedBooksListView extends StatefulWidget {
 
 class FeaturedBooksListViewState extends State<FeaturedBooksListView> {
   int nextPage = 1;
-  final double scrollThresholdPercentage = 0.7;
+  bool isLoading = false;
   late final ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
-    _scrollController = ScrollController();
-    _scrollController.addListener(_checkScrollThreshold);
+    _scrollController = ScrollController()..addListener(_checkScrollThreshold);
   }
 
   @override
@@ -39,11 +39,13 @@ class FeaturedBooksListViewState extends State<FeaturedBooksListView> {
   void _checkScrollThreshold() {
     final double currentPosition = _scrollController.position.pixels;
     final double maxScroll = _scrollController.position.maxScrollExtent;
-    final double scrollThreshold = maxScroll * scrollThresholdPercentage;
+    final double scrollThreshold = maxScroll * 0.7;
     if (currentPosition >= scrollThreshold) {
-      BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(
-        page: nextPage++,
-      );
+      if (!isLoading) {
+        isLoading = true;
+        BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(page: nextPage++);
+        isLoading = false;
+      }
     }
   }
 
@@ -58,13 +60,13 @@ class FeaturedBooksListViewState extends State<FeaturedBooksListView> {
         physics: const BouncingScrollPhysics(),
         itemCount: widget.books.length,
         itemBuilder: (context, index) {
+          final book = widget.books[index];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: CustomBookImage(
-              book: widget.books[index],
+              book: book,
               onTap: () {
-                GoRouter.of(context)
-                    .pushReplacement(kBookDetailsView, extra: widget.books[index]);
+                GoRouter.of(context).push(kBookDetailsView, extra: widget.books[index]);
               },
             ),
           );

@@ -18,3 +18,17 @@ class FetchFeaturedBooksFailure extends FeaturedBooksState {
 
   FetchFeaturedBooksFailure(this.errMessage);
 }
+
+class FetchFeaturedBooksPaginationLoading extends FeaturedBooksState {}
+
+class FetchFeaturedBooksPaginationSuccess extends FeaturedBooksState {
+  final List<BookEntity> books;
+
+  FetchFeaturedBooksPaginationSuccess(this.books);
+}
+
+class FetchFeaturedBooksPaginationFailure extends FeaturedBooksState {
+  final String errMessage;
+
+  FetchFeaturedBooksPaginationFailure(this.errMessage);
+}

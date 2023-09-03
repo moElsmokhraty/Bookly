@@ -1,7 +1,7 @@
 import 'home_local_data_source.dart';
 import 'package:bookly/constants.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   @override

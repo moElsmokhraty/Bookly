@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/book_details_view/widgets/book_details_view_body.dart';
 
 class BookDetailsView extends StatelessWidget {

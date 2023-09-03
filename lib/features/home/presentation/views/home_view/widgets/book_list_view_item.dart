@@ -3,7 +3,7 @@ import 'package:bookly/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:bookly/core/entities/book_entity.dart';
 import 'package:bookly/features/home/presentation/views/home_view/widgets/custom_book_image.dart';
 
 class BookListViewItem extends StatelessWidget {
@@ -21,7 +21,7 @@ class BookListViewItem extends StatelessWidget {
           CustomBookImage(
             book: book,
             onTap: () {
-              GoRouter.of(context).pushReplacement(kBookDetailsView, extra: book);
+              GoRouter.of(context).push(kBookDetailsView, extra: book);
             }
           ),
           const SizedBox(width: 15.0),

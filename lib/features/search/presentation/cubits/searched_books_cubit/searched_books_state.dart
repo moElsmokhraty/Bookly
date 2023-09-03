@@ -6,7 +6,7 @@ abstract class SearchedBooksState {}
 class SearchedBooksInitial extends SearchedBooksState {}
 
 class SearchedBooksSuccess extends SearchedBooksState {
-  final List<BookModel> books;
+  final List<BookEntity> books;
   SearchedBooksSuccess(this.books);
 }
 

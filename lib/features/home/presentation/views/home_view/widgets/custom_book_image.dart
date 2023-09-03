@@ -1,6 +1,6 @@
-import 'package:bookly/features/home/domain/entities/book_entity.dart';
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly/core/entities/book_entity.dart';
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 
 class CustomBookImage extends StatelessWidget {
   const CustomBookImage({Key? key, required this.book, this.onTap}) : super(key: key);

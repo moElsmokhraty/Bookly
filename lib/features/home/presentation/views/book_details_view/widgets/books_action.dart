@@ -28,7 +28,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               text: book.previewLink == null ? 'Not Available' : 'Free Preview',
-              function: () async {
+              onPressed: () async {
                 if (book.previewLink != null) {
                   await launchMyUrl(context, book.previewLink);
                 }

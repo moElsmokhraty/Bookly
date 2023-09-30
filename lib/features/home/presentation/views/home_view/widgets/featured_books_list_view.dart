@@ -43,6 +43,9 @@ class FeaturedBooksListViewState extends State<FeaturedBooksListView> {
     if (currentPosition >= scrollThreshold) {
       if (!isLoading) {
         isLoading = true;
+        if (nextPage == 10) {
+          return;
+        }
         BlocProvider.of<FeaturedBooksCubit>(context).fetchFeaturedBooks(page: nextPage++);
         isLoading = false;
       }

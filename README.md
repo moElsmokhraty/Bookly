@@ -1,16 +1,26 @@
-# bookly
+Bookly
+=============================
+Bookly is a simple book store app that uses the [Google Books API](https://developers.google.com/books/docs/v1/using) to fetch books and display them.
 
-A new Flutter project.
+## Screenshots
 
-## Getting Started
+|                                                                                                                            |                                                                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------:|
+|    <img alt="Bookly" src="https://github.com/moElsmokhraty/bookly_app/blob/master/screenshots/splash.png" width="900"/>    | <img alt="Bookly" src="https://github.com/moElsmokhraty/bookly_app/blob/master/screenshots/home.png" width= "900"/>  |
+| <img alt="Bookly" src="https://github.com/moElsmokhraty/bookly_app/blob/master/screenshots/book_details.png" width="900"/> | <img alt="Bookly" src="https://github.com/moElsmokhraty/bookly_app/blob/master/screenshots/search.png" width="900"/> |
 
-This project is a starting point for a Flutter application.
+## Used Technologies
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter
+- Cubit
+- Dio
+- Google Books API
+- Clean Architecture
+- Dependency Injection
+- Hive for Caching
+- Go Router for Navigation
+- Url Launcher for viewing book details in browser
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Cloning Repo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`git clone git@github.com:moElsmokhraty/Bookly.git`

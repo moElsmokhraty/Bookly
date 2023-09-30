@@ -3,6 +3,9 @@ import 'package:bookly/core/entities/book_entity.dart';
 
 List<BookEntity> getBooksList(Map<String, dynamic> data) {
   List<BookEntity> books = [];
+  if (data['items'] == null) {
+    return books;
+  }
   for (var item in data['items']) {
     books.add(BookModel.fromJson(item));
   }
